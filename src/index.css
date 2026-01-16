@@ -1,0 +1,252 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+@theme {
+  --color-terminal-bg: #05070a;
+  --color-neon-green: #39ff14;
+  --color-neon-blue: #00f3ff;
+  --color-neon-pink: #ff00ff;
+  --color-terminal-border: #1a222c;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #05070a;
+  color: #a0aec0;
+}
+
+/* CSS Variables for glow effects */
+:root {
+  --glow-green: 0 0 10px rgba(57, 255, 20, 0.5), 0 0 20px rgba(57, 255, 20, 0.2);
+  --glow-blue: 0 0 10px rgba(0, 243, 255, 0.5), 0 0 20px rgba(0, 243, 255, 0.2);
+  --glow-pink: 0 0 15px rgba(255, 0, 255, 0.6);
+}
+
+/* Material Symbols Outlined */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  font-family: 'Material Symbols Outlined', sans-serif;
+  font-size: inherit;
+  line-height: 1;
+}
+
+/* Custom scrollbar - terminal style */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #05070a;
+  border: 1px solid #1a222c;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #39ff14;
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #00f3ff;
+  box-shadow: var(--glow-blue);
+}
+
+/* Map container scrollbar */
+.map-container::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.map-container::-webkit-scrollbar-track {
+  background: #05070a;
+  border: 1px solid #1a222c;
+}
+
+.map-container::-webkit-scrollbar-thumb {
+  background-color: #39ff14;
+  border-radius: 0;
+}
+
+.map-container::-webkit-scrollbar-thumb:hover {
+  background-color: #00f3ff;
+}
+
+/* Terminal scanline effect */
+.terminal-scanline {
+  background: linear-gradient(to bottom, transparent 50%, rgba(0, 243, 255, 0.02) 50%);
+  background-size: 100% 4px;
+  pointer-events: none;
+}
+
+/* Terminal input field */
+.terminal-input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #1a222c;
+  color: #39ff14;
+  text-shadow: var(--glow-green);
+  transition: all 0.2s;
+  width: 100%;
+  padding-left: 2rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.terminal-input::placeholder {
+  color: #334155;
+}
+
+.terminal-input:focus {
+  outline: none;
+  border-bottom-color: #39ff14;
+  box-shadow: var(--glow-green);
+}
+
+.terminal-input.neon-blue {
+  color: #00f3ff;
+  text-shadow: var(--glow-blue);
+}
+
+.terminal-input.neon-blue:focus {
+  border-bottom-color: #00f3ff;
+  box-shadow: var(--glow-blue);
+}
+
+/* Brutalist/Terminal card */
+.brutalist-card {
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid #1a222c;
+  position: relative;
+}
+
+/* Neon button with clip-path */
+.neon-button {
+  background-color: #39ff14;
+  color: black;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+  padding: 1rem 1.5rem;
+  transition: all 0.2s;
+  box-shadow: 0 0 20px rgba(57, 255, 20, 0.4);
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 95% 100%, 0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  font-family: 'Manrope', sans-serif;
+  font-size: 1rem;
+}
+
+.neon-button:hover {
+  transform: scale(1.02);
+}
+
+.neon-button:active {
+  transform: scale(0.98);
+}
+
+.neon-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Custom radio styling - terminal style */
+.custom-radio:checked + div {
+  border-color: #00f3ff;
+  background-color: rgba(0, 243, 255, 0.1);
+  color: #00f3ff;
+  box-shadow: var(--glow-blue);
+}
+
+.custom-radio:checked + div .radio-circle {
+  background-color: #00f3ff;
+  border-color: #00f3ff;
+}
+
+/* Wireframe map effect */
+.wireframe-map {
+  filter: brightness(0.9) saturate(0.8) contrast(1.1) drop-shadow(0 0 2px rgba(0, 243, 255, 0.3));
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 8px #ff00ff;
+  }
+  50% {
+    box-shadow: 0 0 15px #ff00ff, 0 0 25px #ff00ff;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Selection styling */
+::selection {
+  background-color: #39ff14;
+  color: black;
+}
+
+/* Leaflet popup styling - terminal theme */
+.leaflet-popup-content-wrapper {
+  background-color: #05070a;
+  border: 1px solid #00f3ff;
+  border-radius: 0;
+  color: #a0aec0;
+  font-family: 'Manrope', sans-serif;
+  box-shadow: var(--glow-blue);
+}
+
+.leaflet-popup-tip {
+  background-color: #00f3ff;
+  box-shadow: none;
+}
+
+.leaflet-container {
+  font-family: 'Manrope', sans-serif;
+  background-color: #05070a;
+}
+
+.leaflet-bar a {
+  background-color: #05070a;
+  border-color: #1a222c;
+  color: #00f3ff;
+}
+
+.leaflet-bar a:hover {
+  background-color: #1a222c;
+  border-color: #00f3ff;
+}
+
+.leaflet-control-attribution {
+  background-color: #05070a;
+  color: #334155;
+}
+
+.leaflet-control-attribution a {
+  color: #00f3ff;
+}
