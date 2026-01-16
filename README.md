@@ -1,16 +1,82 @@
-# React + Vite
+# TERMINAL_DMRC
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Terminal-styled web application for calculating and visualizing the fastest metro route across the Delhi Metro network (DMRC).
 
-Currently, two official plugins are available:
+**Live Demo:** https://terminal-dmrc.pages.dev
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- Interactive Leaflet map with all 11 metro lines
+- A* pathfinding algorithm for optimal route calculation
+- Neon/cyberpunk terminal aesthetic
+- Mobile-responsive design with map/route toggle
+- Rainbow-sorted legend with all active metro lines
+- Glowing line effects with proper layering
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Metro Lines Supported
 
-## Expanding the ESLint configuration
+- Red Line (R_LN)
+- Airport Express Line (AE_LN)
+- Yellow Line (Y_LN)
+- Green Line (G_LN)
+- Aqua Line (A_LN)
+- Blue Line (B_LN)
+- Violet Line (V_LN)
+- Pink Line (P_LN)
+- Magenta Line (M_LN)
+- Gray Line (GY_LN)
+- Rapid Metro Gurugram (RM_LN)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+
+- **Frontend:** React 19 + Vite (rolldown-vite)
+- **Styling:** Tailwind CSS 4.x
+- **Maps:** Leaflet 1.9.4 + react-leaflet 5.0.0
+- **Icons:** Material Symbols Outlined
+- **Pathfinding:** A* algorithm with Haversine distance heuristic
+
+## Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── Header.jsx      # Terminal-styled header with status bar
+│   ├── Sidebar.jsx     # Station selection & route display
+│   └── Map.jsx         # Leaflet map with metro network
+├── data/
+│   └── station_network.json  # Graph data (stations, edges, line shapes)
+├── utils/
+│   └── pathfinding.js  # A* pathfinding algorithm
+└── index.css           # Tailwind + custom terminal styles
+```
+
+## Data Source
+
+The metro network data is derived from GTFS (General Transit Feed Specification) files for Delhi Metro. The graph representation includes:
+- **Stations:** Coordinates and line connections
+- **Edges:** Adjacent stations with distances
+- **Lines:** Color-coded paths for visualization
+
+## License
+
+MIT License - feel free to use this project for your own transit routing needs.
+
+---
+
+**Built with** React + Vite + Tailwind CSS + Leaflet
