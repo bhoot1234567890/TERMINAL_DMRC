@@ -1,0 +1,5 @@
+{
+  "circular_lines": ["Pink"],
+  "circular_threshold_km": 0.3,
+  "add_reverse_edges": true
+}
